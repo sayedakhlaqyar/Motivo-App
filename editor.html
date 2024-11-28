@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motivo</title>
+
+    <!-- icons link -->
+    <link
+      rel="stylesheet"
+      href="./assets/icons/ionicons/css/ionicons.min.css"
+    />
+    <!-- css link -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo 2.png"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <!-- QUOTES CONTAINER -->
+    <div class="quotes_container pd">
+      <div class="container">
+        <div class="quote_editor">
+          <p class="quote__text" data-quote-text></p>
+          <div class="quote__author" data-quote-author></div>
+          <button
+            class="btn__maximize"
+            data-btn-maximize
+            data-html2canvas-ignore
+          >
+            <i class="ion-arrow-expand"></i>
+          </button>
+          <button class="btn_font" data-btn-maximize data-html2canvas-ignore>
+            Aa
+          </button>
+          <!-- FONT CONTAINER -->
+          <div class="font__container">
+            <div class="font_card"></div>
+          </div>
+          <div class="logo_title">
+            <img src="assets/images/logo 2.png" alt="" />
+            <p>Motivo</p>
+          </div>
+        </div>
+
+        <div class="quote__nav-btns" data-html2canvas-ignore>
+          <div class="quote__counter" data-quote-counter></div>
+
+          <div class="center">
+            <div class="action__btns" data-action-btns>
+              <button
+                class=""
+                data-tippy-content="Background color"
+                data-bg-clr-btn
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"
+                  />
+                </svg>
+                <span>Background</span>
+              </button>
+
+              <button
+                class=""
+                data-tippy-content="Background image"
+                data-bg-image-btn
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z"
+                  />
+                </svg>
+                <span>Background Image</span>
+              </button>
+
+              <button
+                class=""
+                data-tippy-content="Gradient"
+                data-bg-gradient-btn
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M440-440v-80h80v80h-80Zm-80 80v-80h80v80h-80Zm160 0v-80h80v80h-80Zm80-80v-80h80v80h-80Zm-320 0v-80h80v80h-80Zm-80 320q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm80-80h80v-80h-80v80Zm160 0h80v-80h-80v80Zm320 0v-80 80Zm-560-80h80v-80h80v80h80v-80h80v80h80v-80h80v80h80v-80h-80v-80h80v-320H200v320h80v80h-80v80Zm0 80v-560 560Zm560-240v80-80ZM600-280v80h80v-80h-80Z"
+                  />
+                </svg>
+                <span>Gradient</span>
+              </button>
+              <button class="" data-tippy-content="Text Color" data-bg-text-btn>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="M280-160v-520H80v-120h520v120H400v520H280Zm360 0v-320H520v-120h360v120H760v320H640Z"
+                  />
+                </svg>
+                <span>Gradient</span>
+              </button>
+
+              <button class="shareBtn" data-tippy-content="Share">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M240-40q-33 0-56.5-23.5T160-120v-440q0-33 23.5-56.5T240-640h120v80H240v440h480v-440H600v-80h120q33 0 56.5 23.5T800-560v440q0 33-23.5 56.5T720-40H240Zm200-280v-447l-64 64-56-57 160-160 160 160-56 57-64-64v447h-80Z"
+                  />
+                </svg>
+                <span>Share</span>
+              </button>
+
+              <button data-tippy-content="Download" data-download-btn>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="25px"
+                  viewBox="0 -960 960 960"
+                  width="25px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"
+                  />
+                </svg>
+              </button>
+              <!-- <button class="btn-primary">
+                <i class="ion-android-image"></i>
+                <span>Background Image</span>
+              </button>
+              <button class="btn-primary">
+                <i class="ion-ios-color-filter"></i>
+                <span>Gradient</span>
+              </button> -->
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn__prev" data-prev-btn>
+              <i class="ion-chevron-left"></i>
+            </button>
+            <button class="btn__next" data-next-btn>
+              <i class="ion-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mob_quote-btns">
+      <div class="btns">
+        <button class="btn__prev" data-prev-btn>
+          <i class="ion-chevron-left"></i>
+        </button>
+        <button class="btn__next" data-next-btn>
+          <i class="ion-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="bg__nav" data-top-nav data-html2canvas-ignore>
+      <div class="container">
+        <div style="background-color: red"></div>
+      </div>
+    </div>
+
+    <div class="bgImage__nav" data-top-bgimage-nav data-html2canvas-ignore>
+      <div class="container">
+        <!-- <img src="./assets/images/backgrounds/1.webp" alt="image" /> -->
+        <input data-custom-image type="file" accept="image/*" hidden />
+        <div class="selectImage" data-custom-image-btn>
+          <i class="ion-android-add"></i>
+          <!-- <span>hi</span> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="bgGradient__nav" data-top-bgGradient data-html2canvas-ignore>
+      <div class="container">
+        <!-- <img src="./assets/images/backgrounds/1.webp" alt="image" /> -->
+        <div></div>
+      </div>
+    </div>
+
+    <div class="bgText__nav" data-top-bgText data-html2canvas-ignore>
+      <!-- <button class="font-style-btn">Font Style</button> -->
+      <div class="container"></div>
+    </div>
+
+    <!-- script js  -->
+    <script src="./assets/js/html2canvas.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/tippy-bundle.umd.min.js"></script>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/editor.js"></script>
+  </body>
+</html>
