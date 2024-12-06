@@ -30,8 +30,12 @@
     <div class="quotes_container pd">
       <div class="container">
         <div class="quote_editor">
-          <p class="quote__text" data-quote-text></p>
-          <div class="quote__author" data-quote-author></div>
+          <p class="quote__text" data-quote-text contenteditable="true">
+            Your Quote
+          </p>
+          <div class="quote__author" data-quote-author contenteditable="true">
+            Written By
+          </div>
           <button
             class="btn__maximize"
             data-btn-maximize
@@ -42,46 +46,10 @@
           <button class="btn_font" data-btn-maximize data-html2canvas-ignore>
             Aa
           </button>
-          <button class="speak_btn" data-btn-maximize data-html2canvas-ignore>
-            <i class="ion-speakerphone"></i>
-          </button>
-
           <!-- FONT CONTAINER -->
           <div class="font__container">
-            <div class="size_container">
-              <p>Select Font Size</p>
-              <select class="size_options">
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="16">14</option>
-                <option value="18">18</option>
-                <option value="22">22</option>
-                <option value="26">26</option>
-                <option value="30">30</option>
-                <option value="34">34</option>
-                <option value="38">38</option>
-                <option value="42">42</option>
-                <option value="46">46</option>
-                <option value="60">60</option>
-                <option value="64">64</option>
-              </select>
-            </div>
-            <br />
             <div class="font_card"></div>
           </div>
-
-          <div class="speak__container">
-            <div class="size_container">
-              <p>Select Voice:</p>
-              <select id="voiceList"></select>
-              <br /><br />
-              <!-- <input id="txtInput" /> -->
-              <button id="btnSpeak" class="btnSpeak">Speak!</button>
-            </div>
-            <br />
-            <div class="font_card"></div>
-          </div>
-
           <div class="logo_title">
             <img src="assets/images/logo 2.png" alt="" />
             <p>Motivo</p>
@@ -89,9 +57,9 @@
         </div>
 
         <div class="quote__nav-btns" data-html2canvas-ignore>
-          <div class="quote__counter" data-quote-counter></div>
+          <!-- <div class="quote__counter" data-quote-counter></div> -->
 
-          <div class="center">
+          <div class="center create_quote">
             <div class="action__btns" data-action-btns>
               <button
                 class=""
@@ -203,19 +171,19 @@
             </div>
           </div>
 
-          <div class="btns">
+          <!-- <div class="btns">
             <button class="btn__prev" data-prev-btn>
               <i class="ion-chevron-left"></i>
             </button>
             <button class="btn__next" data-next-btn>
               <i class="ion-chevron-right"></i>
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
 
-    <div class="mob_quote-btns">
+    <!-- <div class="mob_quote-btns">
       <div class="btns">
         <button class="btn__prev" data-prev-btn>
           <i class="ion-chevron-left"></i>
@@ -224,7 +192,7 @@
           <i class="ion-chevron-right"></i>
         </button>
       </div>
-    </div>
+    </div> -->
 
     <div class="bg__nav" data-top-nav data-html2canvas-ignore>
       <div class="container">

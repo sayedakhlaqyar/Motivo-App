@@ -3,6 +3,7 @@ const categoriesElem = document.querySelector(".categories");
 const searchInput = document.querySelector(".searchInput");
 const aboutMeBtn = document.querySelector(".me_btn");
 const closeBtns = document.querySelectorAll("[data-close-btn]");
+const createQuoteBtn = document.querySelector(".create_btn");
 
 toggleBtn.addEventListener("click", () => {
   document.querySelector(".nav_bar ul").classList.toggle("show");
@@ -19,6 +20,10 @@ closeBtns.forEach((btn) => {
     document.querySelector(".overlay").classList.remove("active");
     document.querySelector(".about_all_round").classList.remove("active");
   });
+});
+
+createQuoteBtn.addEventListener("click", () => {
+  location.href = "./create.html";
 });
 // const getCategories = () => {
 //   fetch("../data/categories.json").then((res) =>

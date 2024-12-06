@@ -20,11 +20,19 @@ const bgTextBtn = document.querySelector("[data-bg-text-btn]");
 const fontContainer = document.querySelector(".font__container .font_card");
 const fontBtn = document.querySelector(".btn_font");
 const shareBtn = document.querySelector(".shareBtn");
+const goHomeBtn = document.querySelector(".go_homebtn");
+const sizeOpetions = document.querySelectorAll(".size_options");
+const speakBtn = document.querySelector(".speak_btn");
+goHomeBtn.addEventListener("click", () => {
+  location.href = "../index.html";
+});
 
 // FONST ARRAY
 
 const fontArray = [
+  "Poppins Light",
   "Poppins Regular",
+  "Poppins Bold",
   "Lato",
   "Chiralla",
   "Kaushan Script",
@@ -48,6 +56,7 @@ fontArray.forEach((font) => {
     f.addEventListener("click", () => {
       const fontName = f.querySelector("p").textContent.trim("");
       quoteText.style.fontFamily = fontName;
+      quoteAuthor.style.fontFamily = fontName;
       document.querySelector(".font__container").classList.remove("active");
     });
   });
@@ -139,6 +148,30 @@ quotePrevBtn.forEach((btn) => {
   });
 });
 
+window.addEventListener("keyup", (e) => {
+  if (e.keyCode === 39) {
+    // console.log("Click Right ");
+
+    // If the user has reached the end of the quotes, reset the CURRENT_QUOTE variable
+    if (CURRENT_QUOTE >= TOTAL_QUOTES) {
+      CURRENT_QUOTE = 0;
+    }
+
+    // Increment the CURRENT_QUOTE variable
+    CURRENT_QUOTE++;
+
+    // Call the createQuoteCard function to update the quote card
+    createQuoteCard();
+  } else if (e.keyCode === 37) {
+    CURRENT_QUOTE--;
+
+    if (CURRENT_QUOTE <= 0) {
+      CURRENT_QUOTE = TOTAL_QUOTES;
+    }
+
+    createQuoteCard();
+  }
+});
 // quotePrevBtn.addEventListener("click", () => {
 //   CURRENT_QUOTE--;
 
@@ -227,12 +260,21 @@ const getTextClrsData = () => {
           let colorsValue = clr.style.background;
           changebgContainer.querySelector(".quote__text").style.color =
             colorsValue;
+          quoteAuthor.style.color = colorsValue;
         });
       });
     })
   );
 };
 getTextClrsData();
+
+// CHANGE FONT SIZE
+sizeOpetions.forEach((size) => {
+  size.addEventListener("change", () => {
+    document.querySelector(".font__container").classList.remove("active");
+    quoteText.style.fontSize = `${size.value}px`;
+  });
+});
 
 bgClrBtn.addEventListener("click", () => {
   bgNav.classList.toggle("show");
@@ -369,3 +411,48 @@ shareBtn.addEventListener("click", async () => {
     console.error("Error sharing quote:", error);
   }
 });
+
+// SPEAK BUTTON
+speakBtn.addEventListener("click", () => {
+  document.querySelector(".speak__container").classList.toggle("active");
+});
+
+// READT EACH QUOTE
+// var txtInput = document.querySelector("#txtInput");
+var voiceList = document.querySelector("#voiceList");
+var btnSpeak = document.querySelector("#btnSpeak");
+var synth = window.speechSynthesis;
+var voices = [];
+
+PopulateVoices();
+if (speechSynthesis !== undefined) {
+  speechSynthesis.onvoiceschanged = PopulateVoices;
+}
+
+btnSpeak.addEventListener("click", () => {
+  console.log(quoteText.textContent);
+  var toSpeak = new SpeechSynthesisUtterance(quoteText.textContent);
+  var selectedVoiceName =
+    voiceList.selectedOptions[0].getAttribute("data-name");
+  voices.forEach((voice) => {
+    if (voice.name === selectedVoiceName) {
+      toSpeak.voice = voice;
+    }
+  });
+  synth.speak(toSpeak);
+});
+
+function PopulateVoices() {
+  voices = synth.getVoices();
+  var selectedIndex = voiceList.selectedIndex < 0 ? 0 : voiceList.selectedIndex;
+  voiceList.innerHTML = "";
+  voices.forEach((voice) => {
+    var listItem = document.createElement("option");
+    listItem.textContent = voice.name;
+    listItem.setAttribute("data-lang", voice.lang);
+    listItem.setAttribute("data-name", voice.name);
+    voiceList.appendChild(listItem);
+  });
+
+  voiceList.selectedIndex = selectedIndex;
+}

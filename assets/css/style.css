@@ -43,6 +43,14 @@
   font-family: "Tomatos";
   src: url("../fonts/tomatoes-font/Tomatoes-O8L8.ttf");
 }
+@font-face {
+  font-family: "Poppins Bold";
+  src: url("../fonts/Poppins/Poppins-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Poppins Light";
+  src: url("../fonts/Poppins/Poppins-Light.ttf");
+}
 
 body {
   /* display: flex;
@@ -60,11 +68,15 @@ body {
   max-width: 1100px;
   padding: 1rem 2rem;
   margin: 0 auto;
+  border-radius: 10px;
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-  /* box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px; */
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   position: relative;
-  /* background-color: #060606; */
   background-color: white;
+  position: sticky;
+  top: 1%;
+  z-index: 1000;
 }
 
 .pd {
@@ -253,6 +265,25 @@ body {
   border: 1px solid #cbd5e1;
 }
 
+.speak_btn {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  font-size: 1rem;
+  background-color: #ffff;
+  height: 2.5rem;
+  width: 2.5rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+  transform: translate(-50%);
+}
+
 .font__container {
   position: absolute;
   top: 10%;
@@ -275,17 +306,20 @@ body {
   transform: scale(1);
 }
 
-.font__container::-webkit-scrollbar-track {
+.font__container::-webkit-scrollbar-track,
+.speak__container::-webkit-scrollbar-track {
   /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
   background-color: #fff;
 }
 
-.font__container::-webkit-scrollbar {
+.font__container::-webkit-scrollbar,
+.speak__container::-webkit-scrollbar {
   width: 10px;
   background-color: gray;
 }
 
-.font__container::-webkit-scrollbar-thumb {
+.font__container::-webkit-scrollbar-thumb,
+.speak__container::-webkit-scrollbar-thumb {
   background-color: gray;
 }
 
@@ -319,6 +353,60 @@ body {
   background-color: #f1f5f9;
 }
 
+.font__container .size_container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+}
+
+.font__container .size_container select {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.speak__container {
+  width: 500px;
+  height: 180px;
+  background-color: white;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+  border-radius: 10px;
+  transform: scale(0);
+  transform-origin: top left;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transition: 0.25s ease;
+  padding: 1rem;
+}
+
+.speak__container.active {
+  transform: scale(1);
+}
+
+.speak__container select {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.speak__container .btnSpeak {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 120px;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  color: #060606;
+  cursor: pointer;
+  border: 1px solid darkgray;
+  transition: 0.25s ease-in;
+  font-size: 1rem;
+}
 .quote__nav-btns {
   position: absolute;
   right: 1rem;
@@ -356,6 +444,10 @@ body {
 .quote__nav-btns .center {
   flex: 1;
   max-width: 400px;
+}
+
+.quote__nav-btns .create_quote {
+  margin: 0 auto;
 }
 
 .quote__nav-btns .center .action__btns {
@@ -519,7 +611,7 @@ body {
   color: black;
   overflow-y: auto;
   /* font-size: clamp(2rem, 4vw, 2.7rem); */
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .quotes_container .quote__text b {
@@ -1034,6 +1126,27 @@ body.hideScroll {
   margin-left: 55px;
   mix-blend-mode: luminosity;
 }
+/* GO HOME BUTTON */
+.go_homebtn {
+  position: fixed;
+  top: 5%;
+  left: 1%;
+  font-size: 1rem;
+  background-color: black;
+  height: 2.5rem;
+  width: 2.5rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 1px solid transparent;
+  color: white;
+  z-index: 1000;
+  display: none;
+}
 
 /* RESPONSIVE SECTION */
 
@@ -1067,6 +1180,7 @@ body.hideScroll {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1rem;
+    margin-top: 1rem;
   }
 
   .nav_bar ul li i {
@@ -1091,6 +1205,23 @@ body.hideScroll {
   }
   .categories {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .speak__container {
+    width: 100%;
+    height: 180px;
+    background-color: white;
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+    border-radius: 10px;
+    transform: scale(0);
+    transform-origin: top left;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: 0.25s ease;
+    padding: 1rem;
   }
 }
 
